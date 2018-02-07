@@ -60,10 +60,8 @@ $(function() {
          * there is at least a single .entry element within the .feed container.
          */
          beforeEach(function(done) {
-            setTimeout(function() {
-                value = 0;
-                done();
-            }, 1);
+            loadFeed(0);
+            done();
          });
 
          // simply checks to make sure that the feed is populated
