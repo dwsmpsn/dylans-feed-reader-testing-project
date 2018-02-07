@@ -77,22 +77,18 @@ $(function() {
 
         // pulls in the starting feed, which is empty and puts it in a variable
         beforeEach(function(done) {
+            loadFeed(0);
             emptyFeed = $('.feed').find('h2').first().text();
             console.log(emptyFeed);
 
-            setTimeout(function() {
-                value = 0;
-                done();
-            }, 5);
-
-            
+            done();
         });
 
         /* captures the first entry in the loaded feed and compares it to the
          * original empty feed
          */
         it('changes after loadFeed completes', function(done) {
-            loadFeed(0, function() {
+            loadFeed(1, function() {
                 var loadedFeed = $('.feed').find('h2').first().text();
                 console.log(loadedFeed);
                 expect(loadedFeed).not.toEqual(emptyFeed);
