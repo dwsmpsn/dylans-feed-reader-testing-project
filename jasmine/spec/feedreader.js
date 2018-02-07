@@ -64,9 +64,9 @@ $(function() {
             done();
          });
 
-         // simply checks to make sure that the feed is populated
+         // simply checks to make sure that the feed has at least one .entry child
          it('exist within the .feed container', function() {
-            expect($(".feed").children()).toBeDefined();
+            expect($(".feed .entry")).toBeDefined();
          });
     });
         
