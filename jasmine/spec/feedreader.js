@@ -14,10 +14,9 @@ $(function() {
          * it has a URL defined and that the URL is not empty.
          */
          it('has a URL defined', function() {
-            for (var i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeTruthy();
+            });
          });
 
 
@@ -25,10 +24,9 @@ $(function() {
          * it has a name defined and that the name is not empty.
          */
          it('has a name', function() {
-            for (var i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeTruthy();
+            });
          });
     });
 
@@ -37,8 +35,7 @@ $(function() {
     describe('The menu', function() {
         // ensures the menu element is hidden by default.
         it('is hidden by default', function() {
-           var menuStatus = document.getElementsByTagName("body")[0].className;
-           expect(menuStatus).toBe("menu-hidden");
+           expect($('body').hasClass("menu-hidden")).toBeTruthy();
         });
 
         // ensures the menu changes visibility when the menu icon is clicked.
