@@ -44,18 +44,13 @@ $(function() {
              * menu, grabbing the open status, and then simulating a click to
              * close the menu again.
              */
-            var origStatus = document.getElementsByTagName("body")[0].className;
+            var origStatus = $("body").hasClass("menu-hidden");
             $(".icon-list").click();
-            var changeOne = document.getElementsByTagName("body")[0].className;
+            var changeOne = $("body").hasClass("menu-hidden");
             $(".icon-list").click();
-            var changeTwo = document.getElementsByTagName("body")[0].className;
-
-            console.log(origStatus);
-            console.log(changeOne);
-            console.log(changeTwo);
             
-            expect(changeOne).not.toEqual(origStatus);
-            expect(changeTwo).toEqual(origStatus);
+            expect(origStatus).toBeTruthy();
+            expect(changeOne).not.toBeTruthy();
         });
     });
         
