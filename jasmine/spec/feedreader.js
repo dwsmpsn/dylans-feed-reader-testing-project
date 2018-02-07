@@ -88,12 +88,13 @@ $(function() {
          * original empty feed
          */
         it('changes after loadFeed completes', function(done) {
-            loadFeed(1, function() {
-                var loadedFeed = $('.feed').find('h2').first().text();
+            var loadedFeed;
+            loadFeed(0, function() {
+                loadedFeed = $('.feed').find('h2').first().text();
                 console.log(loadedFeed);
-                expect(loadedFeed).not.toEqual(emptyFeed);
-                done();
             });
+            expect(loadedFeed).not.toEqual(emptyFeed);
+            done();
         });
     });
         
